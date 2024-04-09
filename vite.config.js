@@ -1,5 +1,6 @@
 import {defineConfig} from "vite"
 import react from "@vitejs/plugin-react"
+import autoprefixer from "autoprefixer";
 
 
 export default defineConfig({
@@ -11,8 +12,14 @@ export default defineConfig({
     server: {
         host: "0.0.0.0",
         port: "8888",
-        open: true,
         hmr: true
     },
     plugins: [react()],
+    css: {
+        postcss: {
+            plugins: [
+                autoprefixer({})
+            ],
+        },
+    }
 });
